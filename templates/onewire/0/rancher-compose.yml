@@ -1,6 +1,6 @@
 .catalog:
   name: Onewire Service
-  version: 0.1
+  version: 0.9
   description: |
     Starts a owserver for every onewire gateway, and
     maintains a consul service check.
