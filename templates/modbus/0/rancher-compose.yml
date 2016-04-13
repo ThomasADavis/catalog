@@ -1,0 +1,8 @@
+pdu:
+    scale: 5
+ion:
+    scale: 2
+ups:
+    scale: 2
+master:
+    scale: 1
