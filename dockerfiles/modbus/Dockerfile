@@ -38,12 +38,14 @@ RUN yum update -y
 RUN mkdir /application
 RUN mkdir /application/config
 ADD pulsar /application/pulsar
-ADD downloads /application/downloads
+ADD get-pip.py /application/
+ADD pulsar-docker/downloads /application/downloads
 ADD requirements.txt /application/config/
 WORKDIR /application
 
-RUN rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
-RUN yum install -y python-pip
+#RUN rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+#RUN yum install -y python-pip
+RUN python get-pip.py
 RUN tar xf /application/downloads/mblogic_all_2011-04-16.tar.gz
 RUN tar xf mblogic_all/mbtools_2011-01-07.tar.gz
 RUN tar xf /application/downloads/mysql-connector-python-2.1.3.tar.gz
