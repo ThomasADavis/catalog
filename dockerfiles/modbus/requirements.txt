@@ -1,5 +1,4 @@
 pika==0.9.8
 rq
 redis
-mysql-connector-python --allow-external mysql-connector-python
 logstash-formatter

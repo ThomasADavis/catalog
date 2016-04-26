@@ -1,14 +1,24 @@
 #!/bin/bash
-if [ ! -d pulsar ] ; then
-    git clone https://boverhof@bitbucket.org/crtsensors/pulsar.git
-fi
-if [ ! -d pulsar-docker ] ; then
-    git clone https://boverhof@bitbucket.org/crtsensors/pulsar-docker.git
-fi
+REGISTRY_NAME='docker-registry.crt.nersc.gov'
+REGISTRY_PORT=5000
+DOCKER_IMAGE_NAME="mini/modbus-worker:0.1"
 
-if [ ! -x "get-pip.py" ] ; then
-    curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-    chmod 755 get-pip.py
-fi
+main() {
+    if [ ! -d pulsar ] ; then
+        git clone https://boverhof@bitbucket.org/crtsensors/pulsar.git
+    fi
+    if [ ! -d pulsar-docker ] ; then
+        git clone https://boverhof@bitbucket.org/crtsensors/pulsar-docker.git
+    fi
 
-docker build -t test/pulsar_worker:0.1 .
+    if [ ! -x "get-pip.py" ] ; then
+        curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+        chmod 755 get-pip.py
+    fi
+
+    docker build -t ${DOCKER_IMAGE_NAME} . \
+    && docker tag $DOCKER_IMAGE_NAME $REGISTRY_NAME:$REGISTRY_PORT/$DOCKER_IMAGE_NAME \
+    && docker push $REGISTRY_NAME:$REGISTRY_PORT/$DOCKER_IMAGE_NAME
+}
+
+main
