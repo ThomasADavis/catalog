@@ -17,4 +17,4 @@ master:
   image: docker-registry.crt.nersc.gov:5000/mini/modbus-worker:0.2
   container_name: modbus_master
   entrypoint: python
-  command: "./pulsar/scripts/pulsar_job_producer.py" --suffix=2
+  command: "./pulsar/scripts/pulsar_job_producer.py --suffix=2"
