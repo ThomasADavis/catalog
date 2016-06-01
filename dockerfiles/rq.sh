@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TAG="0.1"
+TAG="0.2"
 cd rq-dashboard
 
 docker build -t mini/rq-dashboard:$TAG -t mini/rq-dashboard:latest .
