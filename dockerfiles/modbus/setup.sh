@@ -1,11 +1,11 @@
 #!/bin/bash
 REGISTRY_NAME='docker-registry.crt.nersc.gov'
 REGISTRY_PORT=5000
-DOCKER_IMAGE_NAME="mini/modbus-worker:0.5"
+DOCKER_IMAGE_NAME="mini/modbus-worker:0.6"
 
 main() {
     if [ ! -d pulsar ] ; then
-        git clone https://boverhof@bitbucket.org/crtsensors/pulsar.git
+        git clone https://boverhof@bitbucket.org/boverhof/pulsar.git
     fi
     if [ ! -d pulsar-docker ] ; then
         git clone https://boverhof@bitbucket.org/crtsensors/pulsar-docker.git
