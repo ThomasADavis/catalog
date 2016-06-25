@@ -1,0 +1,16 @@
+---
+- hosts: pdu
+  remote_user: root
+
+  tasks:
+  - name: Ensures DIR /opt/ansible/bin exists 
+    file: path=/opt/ansible/bin state=directory
+  - name: copy msbud
+    copy: src=/opt/ansible/nodes/pdu_628/mbusd dest=/opt/ansible/bin
+            owner=root group=root mode=0644
+  - name: copy usb0.py
+    copy: src=/opt/ansible/nodes/pdu_628/usb0.py dest=/opt/ansible/bin
+            owner=root group=root mode=0644
+  - name: copy usb1.py
+    copy: src=/opt/ansible/nodes/pdu_628/usb1.py dest=/opt/ansible/bin
+            owner=root group=root mode=0644
