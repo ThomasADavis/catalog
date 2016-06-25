@@ -1,0 +1,35 @@
+Contains all files Ansible requires for configuration
+
+** Copy SSH KEY to master/ansible_id_rsa before building
+
+
+
+[root@e6bead9ed343 application]# history | grep ansible
+    2  ansible lawrencium -m ping
+    3  ansible --help
+    4  ansible --help
+   10  ansible lawrencium -m ping
+   12  ansible lawrencium -m ping
+   20  ansible-playbook 
+   21  ansible-playbook lawrencium.yml --list-hosts
+   22  ansible-playbook lawrencium.yml 
+   29  ansible-playbook lawrencium.yml 
+   32  ansible lawrencium -s -m apt -a 'pkg=docker state=installed update_cache=true'
+   33  ansible lawrencium -s -m apt -a 'pkg=docker state=remove update_cache=true'
+   34  ansible lawrencium -s -m apt -a 'pkg=docker state=removed update_cache=true'
+   35  ansible lawrencium -s -m apt -a 'pkg=docker-engine state=installed update_cache=true'
+   36  ansible lawrencium-docker.lbl.gov -m ping
+   37  ansible lawrencium-docker.lbl.gov -m 
+   56  ansible-playbook lawrencium.yml 
+   63  ansible-playbook lawrencium.yml 
+   65  ansible-playbook lawrencium.yml 
+   67  ansible-playbook lawrencium.yml 
+
+
+
+[root@1a8e2c94f360 application]# ansible lawrencium-docker.lbl.gov -m service -a "name=docker state=restarted" --become --become-method=sudo 
+lawrencium-docker.lbl.gov | SUCCESS => {
+    "changed": true, 
+    "name": "docker", 
+    "state": "started"
+}

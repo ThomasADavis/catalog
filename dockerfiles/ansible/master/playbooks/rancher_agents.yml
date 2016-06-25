@@ -1,0 +1,9 @@
+---
+- hosts: lawrencium-docker.lbl.gov
+  remote_user: jboverhof
+
+  tasks:
+  - name: install rancher Agent
+    shell: docker run -e CATTLE_AGENT_IP='lawrencium-docker.lbl.gov'  -e CATTLE_HOST_LABELS='net.lawrencium=true'  -d --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:v1.0.1 http://dash.lbl.gov:8080/v1/scripts/9B0ABDAB4045474E370D:1465498800000:LgziC0tuTBTRT7g7fcav46jiEg0
+    become: yes
+    become_method: sudo

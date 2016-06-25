@@ -1,0 +1,39 @@
+---
+- hosts: lawrencium
+  remote_user: jboverhof
+
+  tasks:
+  - name: copy debian backports file
+    copy: src=backports.list dest=/etc/apt/sources.list.d/backports.list
+            owner=root group=root mode=0644
+    become: yes
+    become_method: sudo
+  - name: install apt-transport-https
+    apt: name=apt-transport-https state=latest
+    become: yes
+    become_method: sudo
+  - name: install ca-certifiates
+    apt: name=ca-certificates state=latest
+    become: yes
+    become_method: sudo
+  - name: install an apt key 
+    shell: apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+    become: yes
+    become_method: sudo
+  - name: copy docker.list file
+    copy: src=docker.list dest=/etc/apt/sources.list.d/docker.list
+            owner=root group=root mode=0644
+    become: yes
+    become_method: sudo
+  - name: ensure docker is at the latest version
+    apt: name=docker-engine state=latest update_cache=true
+    become: yes
+    become_method: sudo
+  - name: ensure docker is running
+    service: name=docker state=running
+    become: yes
+    become_method: sudo
+  - name: add jboverhof to docker group
+    shell: usermod -aG docker jboverhof
+    become: yes
+    become_method: sudo

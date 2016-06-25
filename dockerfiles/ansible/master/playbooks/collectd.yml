@@ -1,0 +1,24 @@
+---
+- hosts: lawrencium
+  vars:
+  remote_user: root
+  sudo: yes
+  sudo_user: root
+  tasks:
+  - name: ensure collectd is at the latest version
+    apt: name=collectd state=latest
+  - name: write the logstash config file
+    template: src=/ansible/nodes/etc/collectd/collectd.conf.d/logstash.conf dest=/etc/collectd/collectd.conf.d/logstash.conf
+  - name: write the filters config file
+    template: src=/ansible/nodes/etc/collectd/collectd.conf.d/filters.conf dest=/etc/collectd/collectd.conf.d/filters.conf
+  - name: write the thresholds config file
+    template: src=/ansible/nodes/etc/collectd/collectd.conf.d/thresholds.conf dest=/etc/collectd/collectd.conf.d/thresholds.conf
+  - name: write the config file
+    template: src=/ansible/nodes/etc/collectd/collectd.conf dest=/etc/collectd/collectd.conf
+    notify:
+    - restart collectd
+  - name: ensure collectd is running (and enable it at boot)
+    service: name=collectd state=started enabled=yes
+  handlers:
+    - name: restart collectd
+      service: name=collectd state=restarted
