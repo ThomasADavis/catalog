@@ -7,10 +7,31 @@
     file: path=/opt/ansible/bin state=directory
   - name: copy msbud
     copy: src=/opt/ansible/nodes/pdu_628/mbusd dest=/opt/ansible/bin
-            owner=root group=root mode=0644
+            owner=root group=root mode=0755
   - name: copy usb0.py
     copy: src=/opt/ansible/nodes/pdu_628/usb0.py dest=/opt/ansible/bin
-            owner=root group=root mode=0644
+            owner=root group=root mode=0755
   - name: copy usb1.py
     copy: src=/opt/ansible/nodes/pdu_628/usb1.py dest=/opt/ansible/bin
+            owner=root group=root mode=0755
+  - name: copy modbus_pdu_gateway_502.service
+    copy: src=/opt/ansible/nodes/pdu_628/modbus_pdu_gateway_502.service dest=/etc/systemd/system/modbus_pdu_gateway_502.service
             owner=root group=root mode=0644
+  - name: copy modbus_pdu_gateway_503.service
+    copy: src=/opt/ansible/nodes/pdu_628/modbus_pdu_gateway_503.service dest=/etc/systemd/system/modbus_pdu_gateway_503.service
+            owner=root group=root mode=0644
+  - name: Reload systemd (manual reload is required..)
+    command: systemctl daemon-reload
+  - name: start modbus PDU Gateway 502
+    service: name=modbus_pdu_gateway_502 state=started enabled=yes
+  - name: start modbus PDU Gateway 503
+    service: name=modbus_pdu_gateway_503 state=started enabled=yes
+  - name: stop firewall
+    service: name=firewalld state=stopped enabled=no
+
+
+#  - name: execute usb0.py
+#    script: /opt/ansible/nodes/pdu_628/usb0.py
+##            owner=root group=root mode=0644
+#  - name: execute mbusd for USB0
+#    command: /opt/ansible/bin/mbusd -p /dev/ttyUSB0 -s 19200 -P 502

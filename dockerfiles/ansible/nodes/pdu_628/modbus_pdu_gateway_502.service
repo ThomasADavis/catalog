@@ -1,0 +1,12 @@
+[Unit]
+Description=PDU628 USB0 MODBUS Gateway
+
+
+[Service]
+Type=forking
+TimeoutStartSec=0
+ExecStartPre=/opt/ansible/bin/usb0.py
+ExecStart=/opt/ansible/bin/mbusd -p /dev/ttyUSB0 -s 19200 -P 502
+
+[Install]
+WantedBy=multi-user.target
