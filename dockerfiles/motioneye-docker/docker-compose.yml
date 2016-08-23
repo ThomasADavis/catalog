@@ -6,6 +6,6 @@ services:
       - "8765:8765"
     container_name: MotionEye
     volumes:
-      - /glusterfs/gv0/docker/motioneye/config:/etc/motioneye
-      - /glusterfs/gv0/docker/motioneye/lib:/var/lib/motioneye
+      - /glusterfs/ec0/docker/motioneye/config:/etc/motioneye
+      - /glusterfs/ec0/docker/motioneye/lib:/var/lib/motioneye
     hostname: MotionEye

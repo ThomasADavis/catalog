@@ -9,3 +9,4 @@ motioneye:
   volumes:
     - motioneye-etc:/etc/motioneye
     - motioneye:/var/lib/motioneye
+  volume_driver: convoy-nfs
