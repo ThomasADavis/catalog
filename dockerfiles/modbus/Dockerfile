@@ -2,7 +2,7 @@
 # Dockerfile to build Python MODBUS Application Containers
 # 
 ############################################################
-FROM gliderlabs/alpine:3.3
+FROM gliderlabs/alpine:3.4
 MAINTAINER Joshua Boverhof
 
 # Update the sources list
