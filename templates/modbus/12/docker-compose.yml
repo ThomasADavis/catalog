@@ -1,0 +1,37 @@
+pdu:
+  image: docker-registry.crt.nersc.gov:5000/mini/modbus-worker:0.15
+  command:
+  - -q
+  - modbus
+  - --redis=redis.crt.nersc.gov
+  labels:
+    io.rancher.scheduler.affinity:host_label: net.modbus=true
+    io.rancher.container.pull_image: always
+ion:
+  image: docker-registry.crt.nersc.gov:5000/mini/modbus-worker:0.15
+  command:
+  - -q
+  - ion
+  - --redis=redis.crt.nersc.gov
+  labels:
+    io.rancher.scheduler.affinity:host_label: net.substation=true
+    io.rancher.container.pull_image: always
+ups:
+  image: docker-registry.crt.nersc.gov:5000/mini/modbus-worker:0.15
+  command:
+  - -q
+  - ups
+  - --redis=redis.crt.nersc.gov
+  labels:
+    io.rancher.scheduler.affinity:host_label: net.ups=true
+    io.rancher.container.pull_image: always
+master:
+  image: docker-registry.crt.nersc.gov:5000/mini/modbus-worker:0.15
+  container_name: modbus_master
+  entrypoint: python
+  command:
+  - ./pulsar/scripts/pulsar_job_producer.py
+  - --redis=redis.crt.nersc.gov
+  - --rabbit=rabbit.crt.nersc.gov
+  labels:
+    io.rancher.container.pull_image: always
