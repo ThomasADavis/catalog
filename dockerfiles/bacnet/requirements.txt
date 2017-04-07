@@ -1,0 +1,8 @@
+pika==0.9.8
+rq
+redis
+logstash-formatter
+hiredis 
+psutil 
+python-consul 
+netifaces

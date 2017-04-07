@@ -1,0 +1,7 @@
+bacnet:
+  image: docker-registry.crt.nersc.gov:5000/alpine/bacnet:0.4
+  command: "/opt/bacnet/bacnet.sh"
+  net: host
+  labels:
+      io.rancher.scheduler.affinity:host_label: net.bacnet=true
+
