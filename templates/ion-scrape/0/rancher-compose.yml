@@ -1,8 +1,8 @@
 .catalog:
-  name: BACnet Collection Service
+  name: ION HTTP/HTML Scrape Service
   version: 0.1
   description: |
-    Starts a bacnet collector.
+    Starts a ION HTML scraper.
 
-bacnet:
+ionscrape:
   scale: 1
