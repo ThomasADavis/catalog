@@ -3,5 +3,5 @@ ionscrape:
   command: "/opt/ionscraper/ion-scraper.sh"
   net: host
   labels:
-      io.rancher.scheduler.affinity:host_label: net.substations=true
+      io.rancher.scheduler.affinity:host_label: net.substation=true
 
