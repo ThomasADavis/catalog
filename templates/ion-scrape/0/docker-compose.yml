@@ -1,5 +1,5 @@
 bacnet:
-    image: docker-registry.crt.nersc.gov:5000/alpine/ion-web-scrape:0.1
+  image: docker-registry.crt.nersc.gov:5000/alpine/ion-web-scrape:0.2
   command: "/opt/ionscraper/ion-scraper.sh"
   net: host
   labels:

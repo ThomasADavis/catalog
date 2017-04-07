@@ -17,11 +17,11 @@ main() {
 #        chmod 755 get-pip.py
 #    fi
 #
-#    docker build -t ${DOCKER_IMAGE_NAME} . \
-#    && docker tag $DOCKER_IMAGE_NAME $REGISTRY_NAME:$REGISTRY_PORT/$DOCKER_IMAGE_NAME \
-#    && docker push $REGISTRY_NAME:$REGISTRY_PORT/$DOCKER_IMAGE_NAME
+    docker build -t ${DOCKER_IMAGE_NAME} . \
+    && docker tag $DOCKER_IMAGE_NAME $REGISTRY_NAME:$REGISTRY_PORT/$DOCKER_IMAGE_NAME \
+    && docker push $REGISTRY_NAME:$REGISTRY_PORT/$DOCKER_IMAGE_NAME
 
-    docker build -t ${DOCKER_IMAGE_NAME} .
+#    docker build -t ${DOCKER_IMAGE_NAME} .
 
 #    rm -rf pulsar pulsar-docker
 }
