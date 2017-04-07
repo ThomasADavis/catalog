@@ -1,5 +1,5 @@
 bacnet:
-  image: docker-registry.crt.nersc.gov:5000/alpine/bacnet:0.4
+  image: docker-registry.crt.nersc.gov:5000/alpine/bacnet:0.5
   command: "/opt/bacnet/bacnet.sh"
   net: host
   labels:
