@@ -1,7 +1,7 @@
 #!/bin/bash
 REGISTRY_NAME='docker-registry.crt.nersc.gov'
 REGISTRY_PORT=5000
-DOCKER_IMAGE_NAME="mini/modbus-worker:0.13"
+DOCKER_IMAGE_NAME="mini/modbus-worker:0.14"
 
 main() {
     if [ ! -d pulsar ] ; then
