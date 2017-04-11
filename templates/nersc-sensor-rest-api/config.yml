@@ -1,0 +1,8 @@
+name: nersc-sensor-rest-api
+description: |
+    Sensor control operations power cycle
+version: 1.0.0
+category:  Sensors
+maintainer: Joshua Boverhof
+license: # The license
+projectURL: # A URL related to the catalog entry
