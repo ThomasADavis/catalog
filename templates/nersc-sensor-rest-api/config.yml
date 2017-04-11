@@ -1,6 +1,6 @@
-name: nersc-sensor-rest-api
+name: NERSC Sensor REST API
 description: |
-    Sensor control operations power cycle
+    REST API for interacting with NERSC Sensor infrastructure
 version: 1.0.0
 category:  Sensors
 maintainer: Joshua Boverhof
