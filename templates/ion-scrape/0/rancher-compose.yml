@@ -1,0 +1,8 @@
+.catalog:
+  name: ION HTTP/HTML Scrape Service
+  version: 0.1
+  description: |
+    Starts a ION HTML scraper.
+
+ionscrape:
+  scale: 1
