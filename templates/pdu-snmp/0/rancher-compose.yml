@@ -1,0 +1,18 @@
+.catalog:
+  name: SNMP Service
+  version: 0.1
+  description: |
+    Collects data using SNMP from SNMP devices.
+  questions:
+    - variable: "worker_scale"
+      description: "Number of collectors to run.."
+      label: "Worker Containers:"
+      required: true
+      default: 20
+      type: "int"
+
+jobber:
+  scale: 1
+
+worker:
+  scale: ${worker_scale}

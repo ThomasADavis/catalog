@@ -1,0 +1,7 @@
+snmp-jobber:
+  command: "/opt/snmp/jobber.sh"
+  image: docker-registry.crt.nersc.gov:5000/alpine/snmp:0.1
+
+snmp-worker:
+  command: "/opt/snmp/worker.sh"
+  image: docker-registry.crt.nersc.gov:5000/alpine/snmp:0.1
