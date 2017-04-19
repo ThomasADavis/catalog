@@ -1,9 +1,9 @@
 snmp-jobber:
   command: "/opt/snmp/jobber.sh"
-  image: docker-registry.crt.nersc.gov:5000/alpine/snimpy:0.6
+  image: docker-registry.crt.nersc.gov:5000/alpine/snimpy:0.7
 
 snmp-worker:
   command: "/opt/snmp/worker.sh"
-  image: docker-registry.crt.nersc.gov:5000/alpine/snimpy:0.6
+  image: docker-registry.crt.nersc.gov:5000/alpine/snimpy:0.7
   labels:
       io.rancher.scheduler.affinity:host_label: net.pdunet=true
