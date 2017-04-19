@@ -1,0 +1,5 @@
+.catalog:
+  name: NERSC Sensor REST API
+  version: 0.2
+  description: |
+    NERSC Sensor REST API provides web access to sensor infrastructure
