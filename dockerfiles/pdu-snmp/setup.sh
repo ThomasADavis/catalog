@@ -1,7 +1,7 @@
 #!/bin/bash
 REGISTRY_NAME='docker-registry.crt.nersc.gov'
 REGISTRY_PORT=5000
-DOCKER_IMAGE_NAME="alpine/snimpy:0.14"
+DOCKER_IMAGE_NAME="alpine/snimpy:0.15"
 
 main() {
     if [ ! -d pulsar ] ; then
