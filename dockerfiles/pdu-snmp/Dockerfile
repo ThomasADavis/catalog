@@ -1,4 +1,4 @@
-FROM gliderlabs/alpine:3.4
+FROM gliderlabs/alpine:3.5
 MAINTAINER Thomas Davis tadavis@lbl.gov
 
 RUN mkdir -p /opt/snmp
