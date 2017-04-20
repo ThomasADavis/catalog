@@ -34,6 +34,7 @@ cp /application/pulsar/src/snmp/mib/* mib
 apk del build-dependencies
 rm -rf /root/.cache /var/cache/apk/APK* /tmp/pip_build_root
 rm -rf /opt/snmp/tmp
+rm -rf /application/pulsar
 
 mkdir /external
 
