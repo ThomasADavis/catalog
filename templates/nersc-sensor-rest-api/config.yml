@@ -1,7 +1,7 @@
 name: NERSC Sensor REST API
 description: |
     REST API for interacting with NERSC Sensor infrastructure
-version: 1.0.0
+version: 1.0.1
 category:  Sensors
 maintainer: Joshua Boverhof
 license: # The license
