@@ -1,14 +1,17 @@
 #!/bin/bash
+set -e
 REGISTRY_NAME='docker-registry.crt.nersc.gov'
 REGISTRY_PORT=5000
-DOCKER_IMAGE_NAME="mini/modbus-worker:0.14"
+DOCKER_IMAGE_NAME="mini/modbus-worker:0.15"
 
 main() {
     if [ ! -d pulsar ] ; then
-        git clone git@bitbucket.org:crtsensors/pulsar.git
+        #git clone git@bitbucket.org:crtsensors/pulsar.git
+        git clone https://bitbucket.org/crtsensors/pulsar.git
     fi
     if [ ! -d pulsar-docker ] ; then
-        git clone git@bitbucket.org:crtsensors/pulsar-docker.git
+        #git clone git@bitbucket.org:crtsensors/pulsar-docker.git
+        git clone https://bitbucket.org/crtsensors/pulsar-docker.git
     fi
 
     if [ ! -x "get-pip.py" ] ; then
