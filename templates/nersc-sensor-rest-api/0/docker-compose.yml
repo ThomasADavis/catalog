@@ -1,0 +1,31 @@
+version: '2'
+services:
+  restapi:
+    image: docker-registry.crt.nersc.gov:5000/nersc/sensor_rest_api:0.1
+    environment:
+      REDIS_SERVER_NAME: redis.crt.nersc.gov
+      RQ_REDIS_DATABASE_NAME: rq
+    ports:
+    - 8888:8888/tcp
+    labels:
+      io.rancher.container.dns: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+      io.rancher.container.pull_image: always
+      io.rancher.container.network: 'true'
+  switch:
+    image: docker-registry.crt.nersc.gov:5000/nersc/sensor_rest_api:0.1
+    environment:
+      REDIS_SERVER_NAME: redis.crt.nersc.gov
+      RQ_REDIS_DATABASE_NAME: rq
+    entrypoint:
+    - python3
+    command:
+    - scripts/sensor_control_worker.py
+    labels:
+      io.rancher.scheduler.affinity:host_label: net.ipmi=true
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+      io.rancher.container.network: 'true'

@@ -1,8 +1,8 @@
-name: Onewire Collectors v2
+name: SNMP Collectors
 description: |
-  Onewire server, workers, and jobber
-version: 0.3
-category: onewire
+  SNMP jobber and workers.
+version: 11
+category: snmp
 maintainer: "Thomas Davis <tadavis@lbl.gov>"
 minimum_rancher_version: v1.0.0
 license: 
