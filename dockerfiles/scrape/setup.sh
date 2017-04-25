@@ -2,7 +2,7 @@
 
 REGISTRY_NAME='docker-registry.crt.nersc.gov'
 REGISTRY_PORT=5000
-DOCKER_IMAGE_NAME="alpine/ion-web-scrape:0.2"
+DOCKER_IMAGE_NAME="alpine/ion-web-scrape:0.3"
 
 main() {
     if [ ! -d pulsar ] ; then

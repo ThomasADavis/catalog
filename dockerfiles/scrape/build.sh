@@ -21,7 +21,7 @@ cd /opt/ionscraper
 #rm -rf owfs-code
 #
 cp /opt/ionscraper/pulsar/src/scrape/*py .
-cp /opt/ionscraper/pulsar/src/scrape/ion-scraper.sh .
+cp /opt/ionscraper/pulsar/src/scrape/ion-* .
 
 #
 # Cleanup and remove cruft.
