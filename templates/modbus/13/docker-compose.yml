@@ -1,33 +1,3 @@
-particle1:
-  image: docker-registry.crt.nersc.gov:5000/mini/modbus-worker:0.16
-  entrypoint:
-  - python
-  command:
-  - ./pulsar/scripts/dust_sensor_test.py
-  - -s
-  - particle-1.crt.nersc.gov
-  - -r
-  - rabbit.crt.nersc.gov
-  - scan
-  labels:
-    io.rancher.container.pull_image: always
-    io.rancher.scheduler.affinity:host_label: net.modbus=true
-particle2:
-  image: docker-registry.crt.nersc.gov:5000/mini/modbus-worker:0.16
-  entrypoint:
-  - python
-  command:
-  - ./pulsar/scripts/dust_sensor_test.py
-  - -s
-  - particle-2.crt.nersc.gov
-  - -r
-  - rabbit.crt.nersc.gov
-  - scan
-  labels:
-    io.rancher.container.pull_image: always
-    io.rancher.scheduler.affinity:host_label: net.modbus=true
-    
-
 pdu:
   image: docker-registry.crt.nersc.gov:5000/mini/modbus-worker:0.16
   command:
