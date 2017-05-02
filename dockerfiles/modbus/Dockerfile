@@ -13,7 +13,7 @@ RUN apk add --update tar python python-dev py-pip
 RUN mkdir /application
 RUN mkdir /application/config
 ADD pulsar /application/pulsar
-#ADD get-pip.py /application/
+ADD pulsar/scripts/logging.conf /application/
 ADD pulsar-docker/downloads /application/downloads
 WORKDIR /application
 

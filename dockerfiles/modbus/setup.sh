@@ -27,7 +27,7 @@ main() {
     docker run --rm --name=pulsar_test1 -w /application/pulsar/test --entrypoint=python -ti mini/modbus-worker:0.16 -m unittest crt_modbus_mock_test
 
     echo ">>> TAG AND PUSH"
-    docker tag $DOCKER_IMAGE_NAME $REGISTRY_NAME:$REGISTRY_PORT/$DOCKER_IMAGE_NAME \
+    docker tag $DOCKER_IMAGE_NAME $REGISTRY_NAME:$REGISTRY_PORT/$DOCKER_IMAGE_NAME
     docker push $REGISTRY_NAME:$REGISTRY_PORT/$DOCKER_IMAGE_NAME
 }
 
