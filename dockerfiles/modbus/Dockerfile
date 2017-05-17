@@ -12,17 +12,15 @@ RUN apk add --update tar python python-dev py-pip
 # Copy the folder inside the container
 RUN mkdir /application
 RUN mkdir /application/config
-ADD pulsar /application/pulsar
-ADD pulsar/scripts/logging.conf /application/
-ADD pulsar-docker/downloads /application/downloads
 WORKDIR /application
-
-#RUN python get-pip.py
+ADD pulsar-docker/downloads /application/downloads
 RUN tar xf /application/downloads/mblogic_all_2011-04-16.tar.gz
 RUN tar xf mblogic_all/mbtools_2011-01-07.tar.gz
-#RUN tar xf /application/downloads/mysql-connector-python-2.1.3.tar.gz
-#RUN ( cd mysql-connector-python-2.1.3 && python setup.py install )
-RUN pip install  -r /application/pulsar/requirements.txt --allow-external mysql-connector-python
+ADD pulsar/scripts/logging.conf /application/
+ADD pulsar/requirements.txt /application/
+RUN pip install --upgrade pip
+RUN pip install  -r /application/requirements.txt 
+ADD pulsar /application/pulsar
 
 # ENVIRONMENT
 ENV PYTHONPATH "/application/mbtools_2011-01-07/mbprobe:/application/pulsar/src:/application/mbtools_2011-01-07/pollmb"
