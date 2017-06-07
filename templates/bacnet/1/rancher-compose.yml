@@ -1,0 +1,8 @@
+.catalog:
+  name: BACnet Collection Service
+  version: 0.2
+  description: |
+    Starts a bacnet collector.
+
+bacnet:
+  scale: 1
