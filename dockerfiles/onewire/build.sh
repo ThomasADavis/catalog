@@ -1,6 +1,6 @@
 #!/bin/sh
 
-apk add --update python py-pip openssl ca-certificates
+apk add --update python py-pip openssl ca-certificates redis
 apk add --update --virtual build-dependencies build-base git autoconf libtool automake fuse-dev swig python python-dev perl-dev avahi-dev py-pip linux-headers
 
 # mkdir -p /application
