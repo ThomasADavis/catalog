@@ -1,8 +1,8 @@
 ############################################################
 # Dockerfile to build Python MODBUS Application Containers
-# 
+#
 ############################################################
-FROM gliderlabs/alpine:3.4
+FROM gliderlabs/alpine:3.6
 MAINTAINER Joshua Boverhof
 
 # Update the sources list
@@ -19,7 +19,7 @@ RUN tar xf mblogic_all/mbtools_2011-01-07.tar.gz
 ADD pulsar/scripts/logging.conf /application/
 ADD pulsar/requirements.txt /application/
 RUN pip install --upgrade pip
-RUN pip install  -r /application/requirements.txt 
+RUN pip install  -r /application/requirements.txt
 ADD pulsar /application/pulsar
 
 # ENVIRONMENT
