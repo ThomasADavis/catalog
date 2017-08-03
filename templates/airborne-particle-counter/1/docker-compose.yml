@@ -1,7 +1,7 @@
 version: '2'
 services:
   particle1:
-    image: docker-registry.crt.nersc.gov:5000/mini/modbus-worker:0.18
+    image: docker-registry.crt.nersc.gov:5000/alpine/modbus-worker:0.18
     entrypoint:
     - python
     command:
@@ -15,7 +15,7 @@ services:
       io.rancher.scheduler.affinity:host_label: net.modbus=true
       io.rancher.container.pull_image: always
   particle2:
-    image: docker-registry.crt.nersc.gov:5000/mini/modbus-worker:0.18
+    image: docker-registry.crt.nersc.gov:5000/alpine/modbus-worker:0.17
     entrypoint:
     - python
     command:
