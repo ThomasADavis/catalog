@@ -1,0 +1,5 @@
+.catalog:
+  name: Airborne Particle Counter
+  version: 0.1
+  description: |
+    Application for polling Lighthouse 3014P Airborne Particle Counters
