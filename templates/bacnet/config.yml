@@ -1,7 +1,7 @@
 name: BACnet Collectors 
 description: |
   BACnet collector using pybacnet
-version: 2
+version: 0.3
 category: bacnet
 maintainer: "Thomas Davis <tadavis@lbl.gov>"
 minimum_rancher_version: v1.0.0
