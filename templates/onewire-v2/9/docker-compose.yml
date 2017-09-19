@@ -1,5 +1,5 @@
 owserver:
-  image: docker-registry.crt.nersc.gov:5000/alpine/owfs:0.10
+  image: docker-registry.crt.nersc.gov:5000/alpine/owfs:10
   command: "/opt/onewire/supervisor.sh"
   net: host
   labels:
@@ -7,8 +7,8 @@ owserver:
 
 jobber:
   command: "/opt/onewire/jobber.sh"
-  image: docker-registry.crt.nersc.gov:5000/alpine/owfs:0.10
+  image: docker-registry.crt.nersc.gov:5000/alpine/owfs:10
 
 worker:
   command: "/opt/onewire/worker.sh"
-  image: docker-registry.crt.nersc.gov:5000/alpine/owfs:0.10
+  image: docker-registry.crt.nersc.gov:5000/alpine/owfs:10
