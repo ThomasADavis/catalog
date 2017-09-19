@@ -1,7 +1,7 @@
 #!/bin/bash
 REGISTRY_NAME='docker-registry.crt.nersc.gov'
 REGISTRY_PORT=5000
-DOCKER_IMAGE_NAME="alpine/owfs:0.10"
+DOCKER_IMAGE_NAME="alpine/owfs:11"
 
 main() {
     if [ ! -d pulsar ] ; then
