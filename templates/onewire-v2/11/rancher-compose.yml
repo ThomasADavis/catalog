@@ -1,6 +1,6 @@
 .catalog:
   name: Onewire Service
-  version: 0.2
+  version: 12
   description: |
     Starts a owserver for every onewire gateway, and
     maintains a consul service check.
@@ -9,7 +9,7 @@
       description: "Number of workers for collection.."
       label: "Worker Nodes:"
       required: true
-      default: 1
+      default: 25
       type: "int"
 
 jobber:
