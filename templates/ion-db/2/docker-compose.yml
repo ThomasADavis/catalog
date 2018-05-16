@@ -1,0 +1,7 @@
+ion-db:
+  image: docker-registry.crt.nersc.gov:5000/centos7/ion-db:0.5
+  command: "/opt/ion-db/run.sh"
+  net: host
+  labels:
+      io.rancher.scheduler.affinity:host_label: net.substation=true
+
