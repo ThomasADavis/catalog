@@ -1,7 +1,7 @@
 name: ION DB scraper
 description: |
   Uses the ION meter DB to get values.
-version: 1
+version: 2
 category: ion
 maintainer: "Thomas Davis <tadavis@lbl.gov>"
 minimum_rancher_version: v1.0.0

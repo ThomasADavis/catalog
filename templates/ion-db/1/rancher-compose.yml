@@ -1,0 +1,8 @@
+.catalog:
+  name: ION Enterprise DB Scrape Service
+  version: 2
+  description: |
+    Starts a ION DB scraper.
+
+ion-db:
+  scale: 1
