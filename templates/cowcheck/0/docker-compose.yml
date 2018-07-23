@@ -15,3 +15,5 @@ services:
     - ${PUBLISH_PORT}:5050/tcp
     labels:
       io.rancher.scheduler.global: 'true'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
