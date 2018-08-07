@@ -10,7 +10,7 @@ echo "US/Pacific" > /etc/timezone
 
 cd /opt/onewire
 
-git clone git://git.code.sf.net/p/owfs/code owfs-code
+git clone https://github.com/owfs/owfs.git owfs-code
 
 cd owfs-code
 ./bootstrap
@@ -19,6 +19,9 @@ make
 make install
 
 pip install -r /application/config/requirements.txt
+
+cd /opt/python-consul
+python setup.py install
 
 cd /opt/onewire 
 rm -rf owfs-code

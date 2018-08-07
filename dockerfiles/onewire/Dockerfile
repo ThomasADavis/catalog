@@ -8,6 +8,9 @@ RUN addgroup -S -g 600 onewire && adduser -G onewire -u 600 -h /opt/onewire -S -
 
 ADD build.sh /
 
+RUN mkdir -p /opt/python-consul
+ADD python-consul /opt/python-consul
+
 RUN mkdir -p /application/config
 ADD pulsar /application/pulsar
 ADD pulsar-docker/downloads /application/downloads

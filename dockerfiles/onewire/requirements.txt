@@ -5,5 +5,7 @@ logstash-formatter
 pyowfs
 hiredis 
 psutil 
-python-consul 
+requests
+six
+# python-consul 
 netifaces
