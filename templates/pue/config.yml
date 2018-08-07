@@ -1,0 +1,8 @@
+name: PUE
+description: |
+  Calculates the PUE for B59
+version: 1
+category: pue
+maintainer: "Cary Whitney <clwhitney@lbl.gov>"
+minimum_rancher_version: v1.0.0
+license: 
