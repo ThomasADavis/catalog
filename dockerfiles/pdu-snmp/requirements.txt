@@ -1,5 +1,5 @@
 pika==0.9.8
-rq
+rq==0.8.2
 redis
 logstash-formatter
 hiredis 
