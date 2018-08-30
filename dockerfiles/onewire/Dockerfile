@@ -13,7 +13,7 @@ ADD python-consul /opt/python-consul
 
 RUN mkdir -p /application/config
 ADD pulsar /application/pulsar
-ADD pulsar-docker/downloads /application/downloads
+#ADD pulsar-docker/downloads /application/downloads
 ADD requirements.txt /application/config
 
 RUN ./build.sh
