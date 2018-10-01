@@ -1,7 +1,7 @@
 name: Onewire Collectors v2
 description: |
   Onewire server, workers, and jobber
-version: 23
+version: 24
 category: onewire
 maintainer: "Thomas Davis <tadavis@lbl.gov>"
 minimum_rancher_version: v1.0.0
