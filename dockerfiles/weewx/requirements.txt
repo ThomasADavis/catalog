@@ -1,6 +1,6 @@
 pika>=0.10.0
 configobj>=4.5
-serial>=2.3
+serial
 Cheetah>=2.0
 sqlite3>=2.5
 PIL>=1.1.6
