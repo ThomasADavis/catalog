@@ -1,26 +1,26 @@
 #!/bin/sh
 
-yum makecache
-yum install epel-release
-yum makecache
-yum install python-pip
+yum makecache -y
+yum install -y epel-release
+yum makecache -y
+yum install -y python-pip
 
-yum install python-configobj
-yum install python-cheetah
-yum install python-imaging
-yum install python-setuptools
+yum install -y python-configobj
+yum install -y python-cheetah
+yum install -y python-imaging
+yum install -y python-setuptools
 
 pip install --upgrade pip
 pip install  pyserial
 pip install  pyusb
 
-yum install wget
+yum install -y wget
 
 # mkdir -p /application
 
 #
 cd /opt/weewx
-wget http://weewx.com/downloads/weewx-3.8.2-1.rhel.noarch.rpm
+wget -r --no-parent http://weewx.com/downloads/weewx-3.8.2-1.rhel.noarch.rpm
 rpm -i weewx-3.8.2-1.rhel.noarch.rpm
 
 #
