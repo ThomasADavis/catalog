@@ -27,8 +27,7 @@ rpm -i weewx.com/downloads/weewx-3.8.2-1.rhel.noarch.rpm
 
 pip install -r /opt/weewx/requirements.txt
 
-#cp /glusterfs/ec0/weewx/ncsv-0.4.1.tgz /opt/weewx
-#wee_extension --install ncsv-0.4.1.tgz
+wee_extension --install ncsv-0.4.1.tgz
 
 cd /opt/weewx 
 cp weewx.conf /etc/weewx/weewx.conf

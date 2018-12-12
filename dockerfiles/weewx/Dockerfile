@@ -8,20 +8,17 @@ RUN mkdir -p /opt/weewx
 
 RUN adduser -U -u 642 -d /opt/weewx -c "Weather Station,,," -M weewx && chmod 755 /opt/weewx
 
-ADD requirements.txt /opt/weewx
-ADD run_weewx.sh /opt/weewx
-ADD weewx.conf /opt/weewx
-ADD build.sh /
+COPY requirements.txt /opt/weewx
+COPY run_weewx.sh /opt/weewx
+COPY weewx.conf /opt/weewx
+COPY ncsv-0.4.1.tgz /opt/weewx
+COPY build.sh /
 
 RUN ./build.sh
 
 VOLUME /glusterfs/ec0
 
-WORKDIR /glusterfs/ec0/weewx
-COPY /glusterfs/ec0/weewx/ncsv-0.4.1.tgz /opt/weewx
-
 WORKDIR /opt/weewx
-RUN wee_extension --install ncsv-0.4.1.tgz
 
 #WORKDIR /glusterfs/ec0/weewx
 #ENV PYTHONPATH /glusterfs/ec0/weewx
