@@ -1,11 +1,19 @@
 #!/bin/sh
 
-apk add --update python py-pip openssl ca-certificates
-apk add --update --virtual build-dependencies build-base git autoconf libtool automake fuse-dev swig python python-dev perl-dev avahi-dev py-pip linux-headers
+yum install python-configobj
+yum install python-cheetah
+yum install python-imaging
+yum install python-setuptools
+easy_install pyserial
+easy_install pyusb
 
 # mkdir -p /application
+
 #
 cd /opt/weewx
+wget http://weewx.com/downloads/weewx-3.8.2-1.rhel.noarch.rpm
+rpm -i weewx-3.8.2-1.rhel.noarch.rpm
+
 #
 #git clone git://git.code.sf.net/p/owfs/code owfs-code
 #
@@ -26,5 +34,5 @@ cd /opt/weewx
 #
 # Cleanup and remove cruft.
 #
-apk del build-dependencies
-rm -rf /root/.cache /var/cache/apk/APK* /tmp/pip_build_root
+#apk del build-dependencies
+#rm -rf /root/.cache /var/cache/apk/APK* /tmp/pip_build_root

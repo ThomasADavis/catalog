@@ -1,7 +1,7 @@
 ##
-## Dockerfile.alpine
+## Dockerfile.centos
 ##
-FROM alpine:3.8
+FROM centos
 MAINTAINER clwhitney@lbl.gov
 
 RUN mkdir -p /opt/weewx
@@ -10,11 +10,13 @@ RUN addgroup -S -g 642 weewx && adduser -G weewx -u 642 -h /opt/weewx -S -g "Wea
 
 ADD requirements.txt /opt/weewx
 ADD run_weewx.sh /opt/weewx
+ADD weewx.conf /opt/weewx
 ADD build.sh /
 
 RUN ./build.sh
 
-VOLUME /glusterfs/ec0
+VOLUME /glusterfs/ec0/weather
+VOLUME /glusterfs/ec0/weewx
 
 WORKDIR /glusterfs/ec0/weewx
 ENV PYTHONPATH /glusterfs/ec0/weewx
