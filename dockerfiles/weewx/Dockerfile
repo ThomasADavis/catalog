@@ -17,6 +17,9 @@ RUN ./build.sh
 
 VOLUME /glusterfs/ec0
 
+ADD /glusterfs/ec0/weewx/ncsv-0.4.1.tgz /opt/weewx
+RUN wee_extension --install ncsv-0.4.1.tgz
+
 #WORKDIR /glusterfs/ec0/weewx
 #ENV PYTHONPATH /glusterfs/ec0/weewx
 
