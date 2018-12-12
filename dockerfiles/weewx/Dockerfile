@@ -11,7 +11,6 @@ RUN adduser -U -u 642 -d /opt/weewx -c "Weather Station,,," -M weewx && chmod 75
 ADD requirements.txt /opt/weewx
 ADD run_weewx.sh /opt/weewx
 ADD weewx.conf /opt/weewx
-ADD /glusterfs/ec0/weewx/ncsv-0.4.1.tgz /opt/weewx
 ADD build.sh /
 
 RUN ./build.sh
