@@ -1,11 +1,20 @@
 #!/bin/sh
 
+yum makecache
+yum install epel-release
+yum makecache
+yum install python-pip
+
 yum install python-configobj
 yum install python-cheetah
 yum install python-imaging
 yum install python-setuptools
-easy_install pyserial
-easy_install pyusb
+
+pip install --upgrade pip
+pip install  pyserial
+pip install  pyusb
+
+yum install wget
 
 # mkdir -p /application
 
