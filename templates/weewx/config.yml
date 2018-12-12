@@ -1,0 +1,8 @@
+name: Davis Weather Station
+description: |
+  Weather Station on the Southwest corner of building
+version: 1
+category: weather
+maintainer: "Cary Whitney <clwhitney@lbl.gov>"
+minimum_rancher_version: v1.0.0
+license: 
