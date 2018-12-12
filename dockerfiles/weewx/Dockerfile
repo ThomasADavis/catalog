@@ -15,8 +15,7 @@ ADD build.sh /
 
 RUN ./build.sh
 
-VOLUME /glusterfs/ec0/weather
-VOLUME /glusterfs/ec0/weewx
+VOLUME /glusterfs/ec0
 
 WORKDIR /glusterfs/ec0/weewx
 ENV PYTHONPATH /glusterfs/ec0/weewx
