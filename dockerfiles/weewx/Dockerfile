@@ -18,7 +18,7 @@ RUN ./build.sh
 VOLUME /glusterfs/ec0
 
 WORKDIR /glusterfs/ec0/weewx
-ADD ncsv-0.4.1.tgz /opt/weewx
+COPY /glusterfs/ec0/weewx/ncsv-0.4.1.tgz /opt/weewx
 
 WORKDIR /opt/weewx
 RUN wee_extension --install ncsv-0.4.1.tgz
