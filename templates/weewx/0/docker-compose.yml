@@ -1,6 +1,6 @@
-ionscrape:
+weather:
   image: docker-registry.crt.nersc.gov:5000/alpine/weewx:0.5
   command: "/opt/weewx/run_weewx.sh"
   net: host
   labels:
-     io.rancher.scheduler.affinity:host_label: net.weather=true
+     io.rancher.scheduler.affinity:host_label: net.modbus=true
