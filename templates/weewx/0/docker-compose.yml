@@ -1,5 +1,5 @@
 weather:
-  image: docker-registry.crt.nersc.gov:5000/alpine/weewx:0.5
+  image: docker-registry.crt.nersc.gov:5000/alpine/weewx:0.6
   command: "/opt/weewx/run_weewx.sh"
   net: host
   labels:
