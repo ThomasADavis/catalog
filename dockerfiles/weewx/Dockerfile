@@ -6,7 +6,7 @@ MAINTAINER clwhitney@lbl.gov
 
 RUN mkdir -p /opt/weewx
 
-RUN addgroup -S -g 642 weewx && adduser -G weewx -u 642 -h /opt/weewx -S -g "Weather Station,,,"-D weewx && chmod 755 /opt/weewx
+RUN adduser -U -u 642 -d /opt/weewx -c "Weather Station,,," -M weewx && chmod 755 /opt/weewx
 
 ADD requirements.txt /opt/weewx
 ADD run_weewx.sh /opt/weewx
