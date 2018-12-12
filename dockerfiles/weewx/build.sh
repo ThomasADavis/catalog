@@ -15,13 +15,14 @@ pip install  pyserial
 pip install  pyusb
 
 yum install -y wget
+yum install -y perl
 
 # mkdir -p /application
 
 #
 cd /opt/weewx
 wget -r --no-parent http://weewx.com/downloads/weewx-3.8.2-1.rhel.noarch.rpm
-rpm -i weewx-3.8.2-1.rhel.noarch.rpm
+rpm -i weewx.com/downloads/weewx-3.8.2-1.rhel.noarch.rpm
 
 #
 #git clone git://git.code.sf.net/p/owfs/code owfs-code
