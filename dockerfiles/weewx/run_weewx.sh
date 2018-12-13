@@ -9,4 +9,4 @@ PIDFILE=/opt/weewx/$NAME.pid
 LOCKFILE=/opt/weewx/$NAME
 DAEMON_ARGS="--pidfile=$PIDFILE $WEEWX_CFG"
 
-$WEEWX_BIN $DAEMON_ARGS 
+$WEEWX_BIN $DAEMON_ARGS > /dev/null 2>&1
