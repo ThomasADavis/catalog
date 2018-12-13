@@ -1,3 +1,12 @@
 #!/bin/sh
 
-cd /glusterfs/ec0/weewx ; bin/weewxd weewx.conf -d
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+WEEWX_BIN=/usr/bin/weewxd
+WEEWX_CFG=/etc/weewx/weewx.conf
+WEEWX_USER=weewx.weewx
+NAME=weewx
+PIDFILE=/opt/weewx/$NAME.pid
+LOCKFILE=/opt/weewx/$NAME
+DAEMON_ARGS="--daemon --pidfile=$PIDFILE $WEEWX_CFG"
+
+nohup $WEEWX_BIN $DAEMON_ARGS 

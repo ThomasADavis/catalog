@@ -1,0 +1,8 @@
+.catalog:
+  name: Davis Weather Station
+  version: 0.2
+  description: |
+    Starts the weewx deamon pulling from the Davis Weather Station.
+
+  weather:
+    scale: 1
