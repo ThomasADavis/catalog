@@ -7,6 +7,6 @@ WEEWX_USER=weewx.weewx
 NAME=weewx
 PIDFILE=/opt/weewx/$NAME.pid
 LOCKFILE=/opt/weewx/$NAME
-DAEMON_ARGS="--daemon --pidfile=$PIDFILE $WEEWX_CFG"
+DAEMON_ARGS="--pidfile=$PIDFILE $WEEWX_CFG"
 
-nohup $WEEWX_BIN $DAEMON_ARGS 
+$WEEWX_BIN $DAEMON_ARGS 
