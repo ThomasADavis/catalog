@@ -13,8 +13,17 @@ COPY run_weewx.sh /opt/weewx
 COPY weewx.conf /opt/weewx
 COPY ncsv-0.4.1.tgz /opt/weewx
 COPY build.sh /
+COPY build2.sh /
+COPY build3.sh /
 
 RUN ./build.sh
+COPY . .
+
+RUN ./build2.sh
+COPY . .
+
+RUN ./build3.sh
+COPY . .
 
 VOLUME /glusterfs/ec0
 
