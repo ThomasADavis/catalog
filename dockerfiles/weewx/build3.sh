@@ -5,6 +5,7 @@ pip install  pyusb
 
 yum install -y --nogpgcheck wget
 yum install -y --nogpgcheck perl
+yum install -y --nogpgcheck glusterfs-fuse
 
 cd /opt/weewx
 wget -r --no-parent http://weewx.com/downloads/weewx-3.8.2-1.rhel.noarch.rpm

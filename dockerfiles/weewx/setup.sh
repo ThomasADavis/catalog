@@ -2,7 +2,7 @@
 
 REGISTRY_NAME='docker-registry.crt.nersc.gov'
 REGISTRY_PORT=5000
-DOCKER_IMAGE_NAME="centos/weewx:0.8"
+DOCKER_IMAGE_NAME="centos/weewx:0.9"
 
 main() {
 #    if [ ! -d pulsar ] ; then
