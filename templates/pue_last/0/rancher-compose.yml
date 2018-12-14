@@ -1,0 +1,8 @@
+.catalog:
+  name: PUE Last
+  version: 0.1
+  description: |
+    PUE Test Calculation using the last value from Elastic
+
+  pue:
+    scale: 1

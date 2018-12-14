@@ -1,0 +1,8 @@
+.catalog:
+  name: PUE 30min
+  version: 0.1
+  description: |
+    PUE Test Calculation using the average of last 30 minutes value from Elastic
+
+  pue:
+    scale: 1

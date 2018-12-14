@@ -1,0 +1,8 @@
+name: PUE Test 30min
+description: |
+  PUE Test Calculation using the average of the last 30 minutes values in the Elastic db
+version: 1
+category: pue
+maintainer: "Cary Whitney <clwhitney@lbl.gov>"
+minimum_rancher_version: v1.0.0
+license: 

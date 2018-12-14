@@ -1,0 +1,8 @@
+name: PUE Test Last
+description: |
+  PUE Test Calculation using the last value in the Elastic db
+version: 1
+category: pue
+maintainer: "Cary Whitney <clwhitney@lbl.gov>"
+minimum_rancher_version: v1.0.0
+license: 
