@@ -8,6 +8,7 @@ RUN addgroup -S -g 646 pue && adduser -G pue -u 646 -h /opt/pue -S -g "PUE Calcu
 
 ADD requirements.txt /opt/pue
 ADD pue_last.py /opt/pue
+ADD run.sh /opt/pue
 ADD build.sh /
 
 RUN ./build.sh
