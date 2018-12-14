@@ -18,6 +18,5 @@ WORKDIR /opt/pue
 ENV PYTHONPATH "/opt/pue/"
 
 # Set the default command to execute
-#ENTRYPOINT ["./pulsar/scripts/pulsar_worker.py"]
 ENTRYPOINT [ "/bin/sh" ]
 #CMD ["--help"]
