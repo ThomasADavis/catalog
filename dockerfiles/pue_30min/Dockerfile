@@ -7,7 +7,7 @@ RUN addgroup -S -g 646 pue && adduser -G pue -u 646 -h /opt/pue -S -g "PUE Calcu
     chmod 755 /opt/pue
 
 ADD requirements.txt /opt/pue
-ADD pue_30min /opt/pue
+ADD pue_30min.py /opt/pue
 ADD build.sh /
 
 RUN ./build.sh
