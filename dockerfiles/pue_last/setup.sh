@@ -1,7 +1,7 @@
 #!/bin/bash
 REGISTRY_NAME='docker-registry.crt.nersc.gov'
 REGISTRY_PORT=5000
-DOCKER_IMAGE_NAME="alpine/pue_last:0.2"
+DOCKER_IMAGE_NAME="alpine/pue-last:0.3"
 
 main() {
 #    if [ ! -d pulsar ] ; then

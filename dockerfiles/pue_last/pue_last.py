@@ -102,7 +102,7 @@ def calc(result):
    #pue['N2'] = 1000 / 1000
    #pue['N3'] = 710 / 1000
    #pue['N4'] = 1700 / 1000
-   #pue['N6'] = 0
+   ##pue['N6'] = 0
    #pue['N8'] = 500 / 1000
    #pue['N9'] = 1600 / 1000
 
@@ -110,7 +110,7 @@ def calc(result):
    pue['N2'] = 1000
    pue['N3'] = 710
    pue['N4'] = 1700
-   #pue['N6'] = 0
+   ##pue['N6'] = 0
    pue['N8'] = 500
    pue['N9'] = 1600
 
@@ -126,6 +126,7 @@ def calc(result):
          (valueField, scale, variable, source) = i[x][eskey].split('|')
          if variable not in pue:
             pue[variable] = 0
+            #print("clears pue")
          k = eskey.split('|')
          s = Search(using=esdb, index=indx)
          for j in k:
@@ -136,29 +137,31 @@ def calc(result):
          ##s = s.query('range', **{'@timestamp':{'gte': '2018-07-01T00:00:00.000Z', 'lt':'2018-08-01T00:00:00.000Z'}})
          s = s.query('range', **{'@timestamp':{'gte': 'now-30m', 'lt':'now'}})
          s = s.sort('-@timestamp')
-         ##s = s.aggs.metric('power_sum', 'sum', field='data.datum')
-         s = s.aggs.metric('power_sum', 'sum', field=valueField)
+         #s = s.aggs.metric('power_sum', 'sum', field=valueField)
          s = s[0:1]
 
          #print s.to_dict() 
          response = s.execute() 
 
-         ##print 'Total %d hits found.' % response.hits.total 
+         #print 'Total %d hits found.' % response.hits.total 
          if response.hits.total != 0:
             for commit in response:
-               ##print commit.to_dict()
-               for n in k:
-                  (sk, sv) = n.split(':')
-                  if sk.find('.') != -1:
-                     (psk, ssk) = sk.split('.')
-                     ##print 'key: ', psk 
-                     ##print 'ha', commit[psk][ssk] 
-                  ##else:
-                     ##print 'key: ', sk 
-                     ##print 'value: ', sv 
-                     ##print 'ha', commit[sk] 
-               v = response.aggregations.power_sum
-               pue[variable] += ( v['value'] / response.hits.total ) * float(scale)
+         #      print commit.to_dict()
+               pue[variable] += commit['data']['datum'] * float(scale)
+         #      ##print commit.to_dict()
+         #      for n in k:
+         #         (sk, sv) = n.split(':')
+         #         if sk.find('.') != -1:
+         #            (psk, ssk) = sk.split('.')
+         #            ##print 'key: ', psk 
+         #            ##print 'ha', commit[psk][ssk] 
+         #         ##else:
+         #            ##print 'key: ', sk 
+         #            ##print 'value: ', sv 
+         #            ##print 'ha', commit[sk] 
+         #      v = response.aggregations.power_sum
+         #      pue[variable] += ( v['value'] / response.hits.total )
+         #      print("Processing %s" % variable)
          else:
             ##print s.to_dict() 
             if result['level1'].has_key('missing') is False:
@@ -197,8 +200,8 @@ def calc(result):
    #numm1 = ( ( pue['N1'] + pue['N2'] + pue['N3'] + pue['N4'] + pue['N5'] + pue['N6'] + pue['N7'] + pue['N8'] + pue['N9'] - pue['N7p'] + (pue['ND1-1'] + pue['ND1-2'] + pue['ND1-3'] + pue['ND1-4'] + pue['ND1-5'] + pue['ND1-6']) / 1000 ) * txLoss590 + ( pue['Cp'] - pue['N10pp'] - pue['N11pp'] ) * txLoss596 + pue['D'] + pue['E'] + pue['F'] ) * lineLoss
    #demon1 = (pue['ND1-1'] + pue['ND1-2'] + pue['ND1-3'] + pue['ND1-4'] + pue['ND1-5'] + pue['ND1-6']) / 1000 - pue['N7p'] + pue['Dp'] + pue['Ep'] + pue['Fp']
 
-   numm1 = ( ( pue['N1'] + pue['N2'] + pue['N3'] + pue['N4'] + pue['N5'] + pue['N6'] + pue['N7'] + pue['N8'] + pue['N9'] - pue['N7p'] + pue['ND1-1'] + pue['ND1-2'] + pue['ND1-3'] + pue['ND1-4'] + pue['ND1-5'] + pue['ND1-6'] ) * txLoss590 + ( pue['Cp'] - pue['N10pp'] - pue['N11pp'] ) * txLoss596 + pue['D'] + pue['E'] + pue['F'] ) * lineLoss
-   demon1 = pue['ND1-1'] + pue['ND1-2'] + pue['ND1-3'] + pue['ND1-4'] + pue['ND1-5'] + pue['ND1-6'] - pue['N7p'] + pue['Dp'] + pue['Ep'] + pue['Fp']
+   numm1 = ( ( pue['N1'] + pue['N2'] + pue['N3'] + pue['N4'] + pue['N5'] + pue['N6'] + pue['N7'] + pue['N8'] + pue['N9'] - pue['N7p'] + pue['ND1-1'] + pue['ND1-2'] + pue['ND1-3'] + pue['ND1-4'] + pue['ND1-5'] + pue['ND1-6']) * txLoss590 + ( pue['Cp'] - pue['N10pp'] - pue['N11pp'] ) * txLoss596 + pue['D'] + pue['E'] + pue['F'] ) * lineLoss
+   demon1 = (pue['ND1-1'] + pue['ND1-2'] + pue['ND1-3'] + pue['ND1-4'] + pue['ND1-5'] + pue['ND1-6']) - pue['N7p'] + pue['Dp'] + pue['Ep'] + pue['Fp']
 
    numm2 = ( ( pue['N1'] + pue['N2'] + pue['N3'] + pue['N4'] + pue['N5'] + pue['N7'] + pue['N6'] + pue['N8'] + pue['N9'] + pue['ND2-1'] + pue['ND2-2'] + pue['ND2-3'] + pue['ND2-4'] + pue['ND2-5'] + pue['ND2-6'] + pue['ND2-7'] + pue['ND2-8'] + pue['ND2-9'] + pue['ND2-10'] + pue['ND2-11'] + pue['ND2-12'] + pue['ND2-13'] + pue['ND2-14'] + pue['ND2-15'] + pue['ND2-16'] + pue['ND2-17'] + pue['ND2-18'] ) * txLoss590 + ( pue['Cp'] - pue['N10pp'] - pue['N11pp'] ) * txLoss596 + pue['D'] + pue['E'] + pue['F'] ) * lineLoss
 
@@ -219,7 +222,65 @@ def calc(result):
    result['level2']['end'] = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S")
    #print 'numm1: ', numm1
    #print 'numm2: ', numm2
-   #print 'N6: ', pue['N6']
+
+   #print("N1:     %s" % pue['N1'])
+   #print("N2:     %s" % pue['N2'])
+   #print("N3:     %s" % pue['N3'])
+   #print("N4:     %s" % pue['N4'])
+   #print("N5:     %s" % pue['N5'])
+   #print("N6:     %s" % pue['N6'])
+   #print("N7:     %s" % pue['N7'])
+   #print("N7p:    %s" % pue['N7p'])
+   #print("N7pp:   %s" % pue['N7pp'])
+   #print("N8:     %s" % pue['N8'])
+   #print("N9:     %s" % pue['N9'])
+   #print("N10:    %s" % pue['N10'])
+   #print("N10p:   %s" % pue['N10p'])
+   #print("N10pp:  %s" % pue['N10pp'])
+   ##print("N11:    %s" % pue['N11'])
+   ##print("N11p:   %s" % pue['N11p'])
+   #print("N11pp:  %s" % pue['N11pp'])
+   ##print("A:      %s" % pue['A'])
+   #print("A1:     %s" % pue['A1'])
+   #print("A2:     %s" % pue['A2'])
+   ##print("B:      %s" % pue['B'])
+   #print("B1:     %s" % pue['B1'])
+   #print("B2:     %s" % pue['B2'])
+   ##print("C:      %s" % pue['C'])
+   #print("C1:     %s" % pue['C1'])
+   #print("C2:     %s" % pue['C2'])
+   #print("D:      %s" % pue['D'])
+   #print("D1:     %s" % pue['D1'])
+   #print("D2:     %s" % pue['D2'])
+   #print("E:      %s" % pue['E'])
+   #print("E1:     %s" % pue['E1'])
+   #print("E2:     %s" % pue['E2'])
+   #print("F:      %s" % pue['F'])
+   #print("F1:     %s" % pue['F1'])
+   #print("F2:     %s" % pue['F2'])
+   #print("ND1-1:  %s" % pue['ND1-1'])
+   #print("ND1-2:  %s" % pue['ND1-2'])
+   #print("ND1-3:  %s" % pue['ND1-3'])
+   #print("ND1-4:  %s" % pue['ND1-4'])
+   #print("ND1-5:  %s" % pue['ND1-5'])
+   #print("ND1-6:  %s" % pue['ND1-6'])
+   #print("ND2-1:  %s" % pue['ND2-1'])
+   #print("ND2-2:  %s" % pue['ND2-2'])
+   #print("ND2-3:  %s" % pue['ND2-3'])
+   #print("ND2-4:  %s" % pue['ND2-4'])
+   #print("ND2-5:  %s" % pue['ND2-5'])
+   #print("ND2-6:  %s" % pue['ND2-6'])
+   #print("ND2-7:  %s" % pue['ND2-7'])
+   #print("ND2-8:  %s" % pue['ND2-8'])
+   #print("ND2-9:  %s" % pue['ND2-9'])
+   #print("ND2-10: %s" % pue['ND2-10'])
+   #print("ND2-11: %s" % pue['ND2-11'])
+   #print("ND2-12: %s" % pue['ND2-12'])
+   #print("ND2-13: %s" % pue['ND2-13'])
+   #print("ND2-14: %s" % pue['ND2-14'])
+   #print("ND2-15: %s" % pue['ND2-15'])
+   #print("ND2-16: %s" % pue['ND2-16'])
+
    #print 'demon1: ', demon1
    #print 'demon2: ', demon2
 
@@ -237,13 +298,13 @@ def main():
       channel.exchange_declare(exchange=exchange, exchange_type='topic', durable=True)
       time.sleep(10)
 
-      result['level1'] = dict(count=0, var='eup-l1', type='eup-level1', factor=1, meter='Experimental 30m Ave', host='crt', system='crt', start=None, end=None)
-      result['level2'] = dict(count=0, var='eup-l2', type='eup-level2', factor=1, meter='Experimental 30m Ave', host='crt', system='crt', start=None, end=None)
+      result['level1'] = dict(count=0, var='eup-last-1l', type='eup-saved-level1', factor=1, meter='Experimental2 Last Value', host='crt', system='crt', start=None, end=None)
+      result['level2'] = dict(count=0, var='eup-last-2l', type='eup-saved-level2', factor=1, meter='Experimental2 Last Value', host='crt', system='crt', start=None, end=None)
 
       calc(result)
 
-      #print('PUE1: %s', (json.dumps(result['level1'])))
-      #print('PUE2: %s', (json.dumps(result['level2'])))
+      #print('PUE1: %s\n', (json.dumps(result['level1'])))
+      #print('PUE2: %s\n', (json.dumps(result['level2'])))
       #print('PUE1: %s', result['level1']['pue'])
       #print('PUE2: %s\n', result['level2']['pue'])
       #print('\n')
@@ -261,7 +322,6 @@ def main():
 
       conn.close()
       time.sleep(290)
-      #time.sleep(5)
+      #time.sleep(600)
 
 if __name__ == '__main__': main()
-
