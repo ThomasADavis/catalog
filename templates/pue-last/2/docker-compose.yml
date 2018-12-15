@@ -1,0 +1,6 @@
+pue:
+  image: docker-registry.crt.nersc.gov:5000/alpine/pue-last:0.4
+  command: "/opt/pue/run.sh"
+  net: host
+  labels:
+    io.rancher.scheduler.affinity:host_label: net.modbus=true
