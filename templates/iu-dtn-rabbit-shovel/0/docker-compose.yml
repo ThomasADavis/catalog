@@ -1,0 +1,14 @@
+version: '2'
+services:
+  rabbit:
+    image: docker-registry.crt.nersc.gov:5000/alpine/rabbitmq_iu_shovel:3.7.0
+    environment:
+      RABBITMQ_DEFAULT_USER: 'user1'
+      RABBITMQ_DEFAULT_PASS: 'testing'
+    mem_limit: 1g
+    ports:
+    - 15672
+    - 5672
+    labels:
+      io.rancher.container.dns: 'true'
+      io.rancher.container.network: 'true'

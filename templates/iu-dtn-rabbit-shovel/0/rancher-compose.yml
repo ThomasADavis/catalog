@@ -1,0 +1,5 @@
+.catalog:
+    name: IU DTN TSTAT Offsite Shovel
+    version: 0.1
+    description: |
+       Shovels DTN TSAT data from NERSC Monitoring RabbitMQ to offsite IU RabbitMQ

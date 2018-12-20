@@ -1,0 +1,8 @@
+name: IU DTN TSTAT Offsite Shovel
+description: |
+    Shovels DTN TSAT data from NERSC Monitoring RabbitMQ to offsite Indian University RabbitMQ
+version: 0.1
+category:  collaboration
+maintainer: Joshua Boverhof
+license: # The license
+projectURL: # A URL related to the catalog entry
