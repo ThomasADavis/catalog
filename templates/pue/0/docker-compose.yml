@@ -1,8 +1,7 @@
 pue-master:
-  image: docker-registry.crt.nersc.gov:5000/centos7/pue:0.1
-  command: "/opt/pue/master.sh"
+  image: docker-registry.crt.nersc.gov:5000/alpine/pue-data-reduction:0.1
+  command: "/opt/nersc/scripts/master.sh"
 
 pue-slave:
-  image: docker-registry.crt.nersc.gov:5000/centos7/pue:0.1
-  command: "/opt/pue/slave.sh"
-
+  image: docker-registry.crt.nersc.gov:5000/alpine/pue-data-reduction:0.1
+  command: "/opt/nersc/scripts/worker.py"
