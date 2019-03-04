@@ -1,7 +1,32 @@
-pue-master:
-  image: docker-registry.crt.nersc.gov:5000/alpine/pue-data-reduction:0.1
-  command: "/opt/nersc/scripts/master.sh"
+version: '2'
 
-pue-slave:
-  image: docker-registry.crt.nersc.gov:5000/alpine/pue-data-reduction:0.1
-  command: "/opt/nersc/scripts/worker.py"
+services:
+  master:
+    image: docker-registry.crt.nersc.gov:5000/alpine/pue-data-reduction:0.1
+    working_dir: /opt/nersc
+    entrypoint:
+      - ./scripts/master.py
+      -  --source-queue=crt.pue.source
+      -  --queue=worker.pue
+      -  --debug
+    environment:
+      CRT_PUE_REDIS_DATABASE: '18'
+      CRT_PUE_DATA_WAIT: '30'
+      CRT_PUE_INTERVAL_MINUTES: '15'
+    labels:
+      io.rancher.container.dns: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.container.network: 'true'
+  worker:
+    image: docker-registry.crt.nersc.gov:5000/alpine/pue-data-reduction:0.1
+    working_dir: /opt/nersc
+    entrypoint:
+      - ./scripts/worker.py
+      -  --queue=worker.pue
+      -  --debug
+    environment:
+      CRT_PUE_REDIS_DATABASE: '18'
+    labels:
+      io.rancher.container.dns: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.container.network: 'true'
