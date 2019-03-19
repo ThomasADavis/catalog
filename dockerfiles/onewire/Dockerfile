@@ -10,14 +10,13 @@ ADD build.sh /
 
 RUN mkdir -p /opt/python-consul
 ADD python-consul /opt/python-consul
-RUN mkdir -p /application/config
 
+RUN mkdir -p /application/config
+RUN mkdir -p /application/pulsar
 ADD requirements.txt /application/config
-RUN ./build.sh
-
-RUN mkdir -p /application/config
 ADD pulsar /application/pulsar
-#ADD pulsar-docker/downloads /application/downloads
+
+RUN ./build.sh
 
 WORKDIR /opt/onewire
 VOLUME /external
