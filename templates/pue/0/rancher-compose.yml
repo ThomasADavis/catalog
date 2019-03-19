@@ -2,11 +2,10 @@
   name: PUE Calculator for B59
   version: 1
   description: |
-    Starts a PUE master/slave.
+    Starts a PUE master/worker.
 
-pue-slave:
+worker:
   scale: 1
 
-pue-master:
+master:
   scale: 1
-
