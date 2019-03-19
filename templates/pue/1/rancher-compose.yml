@@ -1,0 +1,11 @@
+.catalog:
+  name: PUE Calculator for B59
+  version: 1
+  description: |
+    Starts a PUE master/worker.
+
+worker:
+  scale: 1
+
+master:
+  scale: 1
