@@ -2,9 +2,9 @@ version: '2'
 
 services:
   master:
-    image: docker-registry.crt.nersc.gov:5000/alpine/pue-data-reduction:0.2
-    mem_limit: 500m
-    memswap_limit: 1000m
+    image: docker-registry.crt.nersc.gov:5000/alpine/pue-data-reduction:0.1
+    mem_limit: ${mem_limit}
+    memswap_limit: ${swap_limit}
     working_dir: /opt/nersc
     entrypoint:
       - ./scripts/master.py
@@ -21,9 +21,9 @@ services:
       io.rancher.container.network: 'true'
       io.rancher.container.pull_image: always
   worker:
-    image: docker-registry.crt.nersc.gov:5000/alpine/pue-data-reduction:0.2
-    mem_limit: 500m
-    memswap_limit: 1000m
+    image: docker-registry.crt.nersc.gov:5000/alpine/pue-data-reduction:0.1
+    mem_limit: ${mem_limit}
+    memswap_limit: ${swap_limit}
     working_dir: /opt/nersc
     entrypoint:
       - ./scripts/worker.py

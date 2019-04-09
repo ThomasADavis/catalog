@@ -3,6 +3,20 @@
   version: 1
   description: |
     Starts a PUE master/worker.
+  questions:
+    - variable: mem_limit
+      description: "Memory limit of each container"
+      label: "Memory Limit per container"
+      type: "string"
+      required: true
+      default: "500m"
+    - variable: swap_limit
+      description: "SWAP limit of each container"
+      label: "SWAP Limit per container"
+      type: "string"
+      required: true
+      default: "1000m"
+
 
 worker:
   scale: 1
