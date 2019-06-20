@@ -1,7 +1,7 @@
 name: Airborne Particle Counter
 description: |
     Application for polling Lighthouse 3014P Airborne Particle Counters
-version: 0.6
+version: 0.7
 category:  Sensors
 maintainer: Joshua Boverhof
 license: # The license
