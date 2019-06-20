@@ -1,0 +1,14 @@
+owserver:
+  image: docker-registry.crt.nersc.gov:5000/alpine/owfs:38
+  command: "/opt/onewire/supervisor.sh"
+  net: host
+  labels:
+      io.rancher.scheduler.affinity:host_label: net.onewire=true
+
+jobber:
+  command: "/opt/onewire/jobber.sh"
+  image: docker-registry.crt.nersc.gov:5000/alpine/owfs:38
+
+worker:
+  command: "/opt/onewire/worker.sh"
+  image: docker-registry.crt.nersc.gov:5000/alpine/owfs:38
