@@ -1,7 +1,7 @@
 name: SNMP Collectors
 description: |
   SNMP jobber and workers.
-version: 15
+version: 16
 category: snmp
 maintainer: "Thomas Davis <tadavis@lbl.gov>"
 minimum_rancher_version: v1.0.0
