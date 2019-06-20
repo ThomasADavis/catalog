@@ -9,7 +9,7 @@ services:
     - -s
     - particle-4.crt.nersc.gov
     - -r
-    - rabbit.crt.nersc.gov
+    - rabbit-internal.crt.nersc.gov
     - scan
     labels:
       io.rancher.scheduler.affinity:host_label: net.modbus=true
@@ -23,7 +23,7 @@ services:
     - -s
     - particle-2.crt.nersc.gov
     - -r
-    - rabbit.crt.nersc.gov
+    - rabbit-internal.crt.nersc.gov
     - scan
     labels:
       io.rancher.scheduler.affinity:host_label: net.modbus=true
@@ -37,7 +37,7 @@ services:
     - -s
     - particle-1.crt.nersc.gov
     - -r
-    - rabbit.crt.nersc.gov
+    - rabbit-internal.crt.nersc.gov
     - scan
     labels:
       io.rancher.scheduler.affinity:host_label: net.modbus=true
