@@ -1,0 +1,15 @@
+version: '2'
+services:
+    rabbit:
+        mem_limit: 1073741824
+        image: rabbitmq:3-management
+        environment:
+            RABBITMQ_DEFAULT_PASS: testing
+            RABBITMQ_DEFAULT_USER: user1
+        ports:
+            - 51953:15672/tcp
+            - 50707:5672/tcp
+        labels:
+            io.rancher.container.dns: 'true'
+            io.rancher.container.network: 'true'
+
