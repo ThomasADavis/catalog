@@ -13,7 +13,7 @@ main() {
 
     fi
 
-    if [ ! -d omni-modbus-poller/pulsar-docker ] ; then
+    if [ ! -d omni-modbus-poller/pulsar-docker/downloads ] ; then
         ( cd omni-modbus-poller && git submodule update --init --recursive )
     fi
 
