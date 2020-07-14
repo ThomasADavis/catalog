@@ -1,7 +1,7 @@
 name: ION Meter HTTP/HTML scraper
 description: |
   Uses the ION meter HTTP interface to get values.
-version: 7
+version: 8
 category: ion
 maintainer: "Thomas Davis <tadavis@lbl.gov>"
 minimum_rancher_version: v1.0.0

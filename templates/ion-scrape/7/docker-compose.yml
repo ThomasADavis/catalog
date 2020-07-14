@@ -1,0 +1,14 @@
+ion-operation:
+  image: docker-registry.crt.nersc.gov:5000/alpine/ion-web-scrape:0.8
+  command: "/opt/ionscraper/ion-operation.sh"
+  net: host
+  labels:
+      io.rancher.scheduler.affinity:host_label: net.substation=true
+
+ion-consumption:
+  image: docker-registry.crt.nersc.gov:5000/alpine/ion-web-scrape:0.8
+  command: "/opt/ionscraper/ion-consumption.sh"
+  net: host
+  labels:
+      io.rancher.scheduler.affinity:host_label: net.substation=true
+
