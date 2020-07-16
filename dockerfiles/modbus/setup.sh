@@ -2,8 +2,7 @@
 set -e
 REGISTRY_NAME='docker-registry.crt.nersc.gov'
 REGISTRY_PORT=5000
-DOCKER_IMAGE_NAME="alpine/modbus-worker:0.26"
-
+DOCKER_IMAGE_NAME="alpine/omni-modbus-worker:2.0.1"
 main() {
     if [ ! -d omni-modbus-poller ] ; then
         #git clone git@bitbucket.org:crtsensors/pulsar.git
