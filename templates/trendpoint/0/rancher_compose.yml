@@ -1,6 +1,7 @@
 version: '2'
 catalog:
   name: Trendpoint Meters
+  version: 0.1
   description: |
     Starts a MODBUS asynchronous poller for Specified host/gateway
   questions:
