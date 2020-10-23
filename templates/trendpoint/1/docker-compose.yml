@@ -7,7 +7,7 @@ services:
     links:
     - redistest:redistest
     ports:
-      - "9181:9181"
+      - "9181"
   test:
     image: docker-registry.crt.nersc.gov:5000/alpine/omni-modbus-worker:2.0.4
     entrypoint:
@@ -62,7 +62,7 @@ services:
     environment:
       RANCHER_SERVICE_NAME: redistest
     ports:
-    - 6379:6379/tcp
+    - 6379/tcp
     labels:
       io.rancher.container.dns: 'true'
       io.rancher.service.wait_for_healthcheck: 'true'
