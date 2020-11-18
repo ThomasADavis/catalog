@@ -1,7 +1,7 @@
 name: modbus
 description: |
     Modbus sensor poller
-version: 0.22
+version: 0.23
 category: MODBUS Sensors
 maintainer: Joshua Boverhof
 license: # The license
