@@ -15,13 +15,13 @@ catalog:
       description: "sleep time (seconds) between job checks"
       label: "Check Interval"
       required: true
-      default: 2
+      default: 10
       type: int
     - variable: check_iterations
       description: "max iterations before poll for all enabled jobs"
       label: "Max Iterations"
       required: true
-      default: 2
+      default: 60
       type: int
   services:
     rq-dashboard:
