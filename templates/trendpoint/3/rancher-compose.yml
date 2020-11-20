@@ -1,0 +1,59 @@
+version: '2'
+catalog:
+  name: Trendpoint Meters
+  version: 0.4
+  description: |
+    Starts a MODBUS asynchronous poller for Specified host/gateway
+  questions:
+    - variable: modbus_gateway
+      description: "MODBUS gateway short hostname must match configuration"
+      label: "MODBUS gateway"
+      type: string
+      required: true
+      default: "tp-dev"
+    - variable: check_interval
+      description: "sleep time (seconds) between job checks"
+      label: "Check Interval"
+      required: true
+      default: 2
+      type: int
+    - variable: check_iterations
+      description: "max iterations before poll for all enabled jobs"
+      label: "Max Iterations"
+      required: true
+      default: 2
+      type: int
+  services:
+    rq-dashboard:
+      scale: 0
+      start_on_create: false
+    trendpoint:
+      scale: 1
+      start_on_create: true
+    test:
+      scale: 1
+      start_on_create: true
+    omni-cfg-redis-dbs:
+      scale: 1
+      start_on_create: true
+    omni-cfg-redis-meter:
+      scale: 1
+      start_on_create: true
+    redistest:
+      scale: 1
+      start_on_create: true
+      health_check:
+        response_timeout: 2000
+        healthy_threshold: 2
+        port: 6379
+        unhealthy_threshold: 3
+        initializing_timeout: 60000
+        interval: 2000
+        strategy: none
+        reinitializing_timeout: 60000
+    omni-cfg-redis-points:
+      scale: 1
+      start_on_create: true
+    master:
+      scale: 1
+      start_on_create: true
