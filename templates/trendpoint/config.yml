@@ -1,8 +1,0 @@
-name: Trendpoint
-description: |
-    Application for Trendpoint Enkapsis and BCPM meters on Perlmutter System
-version: 0.6
-category:  Sensors
-maintainer: Joshua Boverhof
-license: # The license
-projectURL: # A URL related to the catalog entry
