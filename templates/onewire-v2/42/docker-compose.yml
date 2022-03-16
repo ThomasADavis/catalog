@@ -1,0 +1,14 @@
+owserver:
+  image: harbor.omni:443/omni/alpine/owfs:41
+  command: "/opt/onewire/supervisor.sh"
+  net: host
+  labels:
+      io.rancher.scheduler.affinity:host_label: net.onewire=true
+
+jobber:
+  command: "/opt/onewire/jobber.sh"
+  image: harbor.omni:443/omni/alpine/owfs:41
+
+worker:
+  command: "/opt/onewire/worker.sh"
+  image: harbor.omni:443/omni/alpine/owfs:41
